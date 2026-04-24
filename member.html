@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>주요 멤버 및 파트너사</title>
+  <link href="common.css" rel="stylesheet"/>
+</head>
+<body>
+  <article class="page sans">
+    <header>
+      <div class="page-header-icon"><img src="img/chatbot.jpg"/></div>
+      <h1 class="page-title" dir="auto">주요 멤버 및 파트너사</h1>
+    </header>
+    <div class="page-body">
+      <div dir="auto" style="display:contents">
+        <hr/>
+      </div>
+      <div dir="auto" style="display:contents">
+        <h2>주요 인원</h2>
+      </div>
+      <div dir="auto" style="display:contents">
+        <p>AI·데이터 분석 전문 인력으로 구성된 핵심 인력은 머신러닝, 빅데이터, 최적화 모델링 분야의 풍부한 경험 보유<br/>금융 및 산업 도메인 기반의 분석 역량과 아키텍처 설계 능력 보유<br/><mark class="highlight-blue"><strong>데이터 수집부터 모델 개발·적용까지 전 과정을 수행하며 고도화된 AI 솔루션 구현</strong></mark></p>
+      </div>
+      <!-- ── Board of Directors ─────────────────────────── -->
+      <h3 class="section-title">Board of Directors (BOD)</h3>
+      <div class="gallery-bod" id="gallery-bod"></div>
+      <div dir="auto" style="display:contents">
+        <hr/>
+      </div>
+      <div dir="auto" style="display:contents">
+        <h2>협업 파트너 (Aliiance)</h2>
+      </div>
+      <div dir="auto" style="display:contents">
+        <p>다양한 산업의 선도 기업들과 협업 파트너십을 구축하여 컨설팅부터 시스템 구축까지 전방위적인 서비스 제공<br/>검증된 기술력과 실행 역량을 바탕으로 고객의 비즈니스 과제를 공동으로 해결<br/><mark class="highlight-blue"><strong>지속 가능한 가치 창출과 성과 실현을 지원하는 신뢰 기반 협력 체계 지향</strong></mark></p>
+      </div>
+      <!-- ── 컨설팅 파트너 ───────────────────────────────── -->
+      <h3 class="section-title">컨설팅 파트너</h3>
+      <div class="gallery-partner" id="gallery-cnsl"></div>
+      <!-- ── 구축 파트너 ─────────────────────────────────── -->
+      <h3 class="section-title">구축 파트너</h3>
+      <div class="gallery-partner" id="gallery-cnstc"></div>
+    </div>
+  </article>
+
+  <!-- ── 팝업 ──────────────────────────────────────────────── -->
+  <div id="popup-overlay" onclick="if(event.target===this)closePopup()">
+    <div id="popup-modal">
+      <button id="popup-close" onclick="closePopup()" title="닫기">✕</button>
+      <div id="popup-content"></div>
+    </div>
+  </div>
+
+  <!-- data.js 로드 (ALL_DATA, COLOR_MAPS) -->
+  <script src="data.js"></script>
+
+  <script>
+  // ── 유틸 ─────────────────────────────────────────────────
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function chip(text, colorMap) {
+    var color = (colorMap && colorMap[text]) ? colorMap[text] : 'default';
+    return '<span class="tag tag-' + color + '">' + esc(text) + '</span>';
+  }
+  function propRow(label, valueHtml) {
+    return '<div class="property-row">' +
+      '<div class="property-label">' + esc(label) + '</div>' +
+      '<div class="property-value">' + valueHtml + '</div>' +
+      '</div>';
+  }
+  function formatText(text) {
+    if (!text) return '';
+    return text.split('\n').map(function(l) {
+      return '<span class="content-line">' + esc(l) + '</span>';
+    }).join('');
+  }
+
+  // ── BOD 갤러리 빌드 ──────────────────────────────────────
+  function buildBodGallery() {
+    var members = ALL_DATA.bod || [];
+    var container = document.getElementById('gallery-bod');
+    container.innerHTML = '';
+    members.forEach(function(m) {
+      var roleColor = (COLOR_MAPS.role && COLOR_MAPS.role[m.role]) ? COLOR_MAPS.role[m.role] : 'default';
+      var card = document.createElement('div');
+      card.className = 'bod-card';
+      var photoHtml = m.image
+        ? '<div class="bod-photo"><img src="img/' + esc(m.image) + '" alt="' + esc(m.name) + '"/></div>'
+        : '';
+      card.innerHTML =
+        photoHtml +
+        '<div class="bod-info">' +
+          '<div class="bod-name">' + esc(m.name) + '</div>' +
+          '<div class="bod-tags"><span class="tag tag-' + roleColor + '">' + esc(m.role) + '</span></div>' +
+        '</div>';
+      card.onclick = function() { openBodPopup(m); };
+      container.appendChild(card);
+    });
+  }
+
+  // ── BOD 팝업 ─────────────────────────────────────────────
+  function openBodPopup(m) {
+    var props = '';
+    // Role
+    props += propRow('Role', chip(m.role, COLOR_MAPS.role));
+    // 컨설팅 및 분석설계 (contents)
+    props += propRow('컨설팅 및 분석설계', formatText(m.contents));
+    // 보유 기술 (skills)
+    if (m.skills) {
+      props += propRow('보유 기술', formatText(m.skills));
+    }
+    // 주요 경력 (콤마 구분 태그)
+    var careerChips = m.career
+      ? m.career.split(',').map(function(k) { return k.trim(); })
+        .filter(function(k) { return k; })
+        .map(function(k) { return chip(k, COLOR_MAPS.career); }).join(' ')
+      : '';
+    props += propRow('주요 경력', careerChips);
+    var coverHtml = m.image
+      ? '<div class="cover-outer"><img src="img/' + esc(m.image) + '" style="object-position: center 15%"></div>'
+      : '';
+    document.getElementById('popup-content').innerHTML =
+      '<div class="popup-header-bar"></div>' +
+      coverHtml +
+      '<div class="page-content">' +
+        '<h1 class="page-title-popup">' + esc(m.name) + '</h1>' +
+        '<div class="properties">' + props + '</div>' +
+      '</div>';
+    document.getElementById('popup-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePopup() {
+    document.getElementById('popup-overlay').classList.remove('active');
+    document.getElementById('popup-content').innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePopup(); });
+
+  // ── 컨설팅 파트너 갤러리 빌드 ────────────────────────────
+  function buildCnslGallery() {
+    var partners = ALL_DATA.cnsl_partner || [];
+    var container = document.getElementById('gallery-cnsl');
+    container.innerHTML = '';
+    partners.forEach(function(p) {
+      var imgSrc = 'img/' + p.image;
+      var card = document.createElement('div');
+      card.className = 'partner-card';
+      // customer 태그 (콤마 구분)
+      var customerChips = p.customer
+        ? p.customer.split(',').map(function(k) { return k.trim(); })
+          .filter(function(k) { return k; })
+          .map(function(k) { return chip(k, COLOR_MAPS.cnsl_customer); }).join(' ')
+        : '';
+      // contents → bullet lines (빈 줄 제외)
+      var bulletLines = p.contents
+        ? p.contents.split('\n')
+          .filter(function(l) { return l.trim() !== ''; })
+          .map(function(l) { return '<li>' + esc(l) + '</li>'; }).join('')
+        : '';
+      card.innerHTML =
+        '<div class="partner-logo"><img src="' + imgSrc + '" alt="' + esc(p.name) + '"/></div>' +
+        '<div class="partner-info">' +
+          '<div class="partner-name">' + esc(p.name) + '</div>' +
+          '<ul class="partner-bullets">' + bulletLines + '</ul>' +
+          '<div class="partner-tags">' + customerChips + '</div>' +
+        '</div>';
+      if (p.url) {
+        card.style.cursor = 'pointer';
+        card.onclick = function() { window.open(p.url, '_blank'); };
+      }
+      container.appendChild(card);
+    });
+  }
+
+  // ── 구축 파트너 갤러리 빌드 ──────────────────────────────
+  function buildCnstcGallery() {
+    var partners = ALL_DATA.cnstc_partner || [];
+    var container = document.getElementById('gallery-cnstc');
+    container.innerHTML = '';
+    partners.forEach(function(p) {
+      var imgSrc = 'img/' + p.image;
+      var card = document.createElement('div');
+      card.className = 'partner-card';
+      // keyward 태그 (콤마 구분)
+      var keywardChips = p.keyward
+        ? p.keyward.split(',').map(function(k) { return k.trim(); })
+          .filter(function(k) { return k; })
+          .map(function(k) { return chip(k, COLOR_MAPS.cnst_keyward); }).join(' ')
+        : '';
+      // contents → bullet lines (빈 줄 제외)
+      var bulletLines = p.contents
+        ? p.contents.split('\n')
+          .filter(function(l) { return l.trim() !== ''; })
+          .map(function(l) { return '<li>' + esc(l) + '</li>'; }).join('')
+        : '';
+      card.innerHTML =
+        '<div class="partner-logo"><img src="' + imgSrc + '" alt="' + esc(p.name) + '"/></div>' +
+        '<div class="partner-info">' +
+          '<div class="partner-name">' + esc(p.name) + '</div>' +
+          '<ul class="partner-bullets">' + bulletLines + '</ul>' +
+          '<div class="partner-tags">' + keywardChips + '</div>' +
+        '</div>';
+      if (p.url) {
+        card.style.cursor = 'pointer';
+        card.onclick = function() { window.open(p.url, '_blank'); };
+      }
+      container.appendChild(card);
+    });
+  }
+
+  // ── 초기화 ───────────────────────────────────────────────
+  buildBodGallery();
+  buildCnslGallery();
+  buildCnstcGallery();
+  </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>과제 목록</title>
+    <link href="common.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <article class="page sans">
+      <header>
+        <div class="page-header-icon"><img src="img/chatbot.jpg" /></div>
+        <h1 class="page-title" dir="auto">과제 목록</h1>
+      </header>
+      <div class="page-body">
+        <div dir="auto" style="display:contents">
+          <hr/>
+        </div>
+        <h3 class="section-title">현재 수행 과제</h3>
+        <div class="gallery-current" id="gallery-current"></div>
+        <div dir="auto" style="display:contents">
+          <hr/>
+        </div>
+        <h3 class="section-title">수행 완료 과제 (최신 순서)</h3>
+        <div class="gallery-completed" id="gallery-completed"></div>
+      </div>
+    </article>
+
+    <!-- ── 팝업 ─────────────────────────────────────────────── -->
+    <div id="popup-overlay" onclick="if (event.target === this) closePopup();">
+      <div id="popup-modal">
+        <button id="popup-close" onclick="closePopup()" title="닫기">✕</button>
+        <div id="popup-content"></div>
+      </div>
+    </div>
+
+    <!-- 엑셀 데이터 (VBA 매크로 또는 generate_data.py 로 갱신) -->
+    <script src="data.js"></script>
+
+    <script>
+      // ── 갤러리 빌더 ──────────────────────────────────────────
+      function buildGallery(tasks, containerId) {
+        var container = document.getElementById(containerId);
+        container.innerHTML = "";
+        tasks.forEach(function (task) {
+          var card = document.createElement("div");
+          card.className = "project-card";
+          card.innerHTML =
+            '<div class="card-image"><img src="img/' +
+            task.image +
+            '" alt="' +
+            esc(task.title) +
+            '"></div>' +
+            '<div class="card-title">' +
+            esc(task.title) +
+            "</div>";
+          card.onclick = function () {
+            openPopup(task);
+          };
+          container.appendChild(card);
+        });
+      }
+
+      buildGallery(ALL_DATA.cur_task, "gallery-current");
+      buildGallery(ALL_DATA.cmpt_task, "gallery-completed");
+
+      // ── 팝업 ─────────────────────────────────────────────────
+      function chip(text, colorMap) {
+        var color = colorMap && colorMap[text] ? colorMap[text] : "default";
+        return '<span class="tag tag-' + color + '">' + esc(text) + "</span>";
+      }
+      function propRow(label, valueHtml) {
+        return (
+          '<div class="property-row">' +
+          '<div class="property-label">' +
+          label +
+          "</div>" +
+          '<div class="property-value">' +
+          valueHtml +
+          "</div>" +
+          "</div>"
+        );
+      }
+      function formatContents(text) {
+        if (!text) return "";
+        var lines = text.split("\n").filter(function (l) {
+          return l.trimEnd();
+        });
+        return lines
+          .map(function (l, i) {
+            // 앞 공백 개수 측정 후 &nbsp; 로 변환 (들여쓰기 보존)
+            var spaces = l.match(/^( *)/)[1].length;
+            var indent = new Array(spaces + 1).join("&nbsp;");
+            var content = esc(l.trimStart());
+            var inner = i === 0 ? "<strong>" + content + "</strong>" : content;
+            return '<span class="content-line">' + indent + inner + "</span>";
+          })
+          .join("");
+      }
+      function esc(s) {
+        return String(s)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function openPopup(task) {
+        var props = "";
+
+        // 키워드
+        var kwChips = task.kewards
+          ? task.kewards
+              .split(",")
+              .map(function (k) {
+                return k.trim();
+              })
+              .filter(function (k) {
+                return k;
+              })
+              .map(function (k) {
+                return chip(k, COLOR_MAPS.task_keyward);
+              })
+              .join(" ")
+          : "";
+        props += propRow("주요 키워드", kwChips);
+
+        // 주관사
+        props += propRow(
+          "주관사",
+          task.comp_mngt ? chip(task.comp_mngt, COLOR_MAPS.comp_mngt) : "",
+        );
+
+        // 수행사(협업사)
+        props += propRow(
+          "수행사(협업사)",
+          task.comp_exec ? chip(task.comp_exec, COLOR_MAPS.cmmp_exec) : "",
+        );
+
+        // 시작/종료년월
+        props += propRow(
+          "시작년월",
+          task.start_month ? esc(task.start_month) : "",
+        );
+        props += propRow("종료년월", task.end_month ? esc(task.end_month) : "");
+
+        // 수행 내용
+        props += propRow("수행 내용", formatContents(task.contents));
+
+        document.getElementById("popup-content").innerHTML =
+          '<div class="popup-header-bar"></div>' +
+          '<div class="cover-outer"><img src="img/' +
+          esc(task.image) +
+          '" style="object-position: center 50%"></div>' +
+          '<div class="page-content">' +
+          '<h1 class="page-title-popup">' +
+          esc(task.title) +
+          "</h1>" +
+          '<div class="properties">' +
+          props +
+          "</div>" +
+          "</div>";
+
+        document.getElementById("popup-overlay").classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+      function closePopup() {
+        document.getElementById("popup-overlay").classList.remove("active");
+        document.getElementById("popup-content").innerHTML = "";
+        document.body.style.overflow = "";
+      }
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closePopup();
+      });
+    </script>
+  </body>
+</html>
