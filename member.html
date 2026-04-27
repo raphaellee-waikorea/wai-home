@@ -215,5 +215,13 @@
   buildCnslGallery();
   buildCnstcGallery();
   </script>
+  <script>
+    function sendHeight() {
+      var h = document.documentElement.scrollHeight;
+      window.parent.postMessage({ iframeHeight: h }, '*');
+    }
+    window.addEventListener('load', sendHeight);
+    window.addEventListener('resize', sendHeight);
+  </script>
 </body>
 </html>
