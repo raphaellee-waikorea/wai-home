@@ -104,23 +104,51 @@
           .replace(/"/g, "&quot;");
       }
 
-      function openPopup(task) {
-        // ── 팝업 높이를 실제 화면 기준으로 고정 ──
-        // Wix 부모에게 iframe 위치로 스크롤 요청
-        window.parent.postMessage({ action: 'scrollToIframe' }, '*');
+      var _pendingTask = null;
+      // 부모(Wix)로부터 뷰포트 위치 수신
+      window.addEventListener('message', function(e) {
+        if (e.data && e.data.type === 'viewportInfo' && _pendingTask) {
+          var task = _pendingTask;
+          _pendingTask = null;
 
-        // 스크롤 완료 후 팝업 표시 (500ms 대기)
-        setTimeout(function() {
+          // iframeTop: 브라우저 뷰포트 기준 iframe 상단 위치 (스크롤 내리면 음수)
+          var iframeTop    = e.data.iframeTop || 0;
+          var visibleStart = Math.max(0, -iframeTop);       // iframe 내 보이는 영역 시작 Y
+          var viewH        = e.data.viewH || window.innerHeight;
+
           var overlay = document.getElementById("popup-overlay");
-          overlay.style.top    = "0px";
-          overlay.style.height = "100%";
+          overlay.style.top    = visibleStart + "px";
+          overlay.style.height = viewH + "px";
 
+          // --- 기존 팝업 내용 생성 코드 그대로 ---
           var props = "";
-          // ... 기존 코드 그대로
-          document.getElementById("popup-overlay").classList.add("active");
+          var kwChips = task.kewards ? task.kewards.split(",").map(function(k){
+            return k.trim();
+          }).filter(function(k){ return k; }).map(function(k){
+            return chip(k, COLOR_MAPS.task_keyward);
+          }).join(" ") : "";
+          props += propRow("주요 키워드", kwChips);
+          props += propRow("주관사", task.comp_mngt ? chip(task.comp_mngt, COLOR_MAPS.comp_mngt) : "");
+          props += propRow("수행사(협업사)", task.comp_exec ? chip(task.comp_exec, COLOR_MAPS.cmmp_exec) : "");
+          props += propRow("시작년월", task.start_month ? esc(task.start_month) : "");
+          props += propRow("종료년월", task.end_month ? esc(task.end_month) : "");
+          props += propRow("수행 내용", formatContents(task.contents));
+
+          document.getElementById("popup-content").innerHTML =
+            '<div class="popup-header-bar"></div>' +
+            '<div class="cover-outer"><img src="img/' + esc(task.image) + '" alt="" style="object-position:center 50%"></div>' +
+            '<div class="page-content">' +
+            '<h1 class="page-title-popup">' + esc(task.title) + "</h1>" +
+            '<div class="properties">' + props + "</div>" +
+            "</div>";
+
+          overlay.classList.add("active");
           document.body.style.overflow = "hidden";
-        }, 500);
-        // ─────────────────────────────────────────
+        }
+      });
+      function openPopup(task) {
+        // Wix 부모에게 현재 뷰포트 위치 요청
+        window.parent.postMessage({ action: 'requestViewport' }, '*');
 
         var props = "";
 
