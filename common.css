@@ -296,25 +296,26 @@ ul > li {
 /* ── 팝업 오버레이 ──────────────────────────────────────────── */
 #popup-overlay {
     display: none;
-    position: fixed;
+    position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.55);
+    background: transparent;        /* rgba(0,0,0,0.55) → transparent */
     z-index: 1000;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: 60px;
 }
 #popup-overlay.active { display: flex; }
 #popup-modal {
     position: relative;
     width: calc(100vw - 144px);
     max-width: 975px;
-    height: calc(100vh - 144px);
+    height: auto;              /* calc(100vh - 144px) → auto */
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.28);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: visible;         /* hidden → visible */
 }
 #popup-close {
     position: absolute;
@@ -334,7 +335,10 @@ ul > li {
     transition: background 0.15s;
 }
 #popup-close:hover { background: rgba(55, 53, 47, 0.18); }
-#popup-content { flex: 1; overflow-y: auto; }
+#popup-content {
+    flex: 1;
+    overflow: visible;
+}
 
 /* ── 팝업 내부 콘텐츠 ───────────────────────────────────────── */
 .popup-header-bar { height: 44px; }

@@ -105,6 +105,15 @@
       }
 
       function openPopup(task) {
+        // ── 팝업 높이를 실제 화면 기준으로 고정 ──
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        var viewH   = Math.min(window.innerHeight, 860);
+        var overlay = document.getElementById("popup-overlay");
+        var modal   = document.getElementById("popup-modal");
+        overlay.style.top    = scrollY + "px";
+        overlay.style.height = "100%";
+        // ─────────────────────────────────────────
+
         var props = "";
 
         // 키워드
