@@ -356,7 +356,7 @@ ul > li {
     width: 100%;
     height: 100%;
 }
-.page-content { padding: 0 126px 80px; }
+.page-content { padding: 0 126px 10px; }
 .page-title-popup {
     font-size: 40px;
     font-weight: 700;
