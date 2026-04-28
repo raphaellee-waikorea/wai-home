@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>과제 목록</title>
     <link href="common.css" rel="stylesheet"/>
+    <script>
+      // CSS 로드 전에 실제 기기 화면 높이를 변수로 주입
+      document.documentElement.style.setProperty('--screen-h', window.screen.height + 'px');
+    </script>
   </head>
   <body>
     <article class="page sans">
@@ -36,11 +40,6 @@
 
     <!-- 엑셀 데이터 (VBA 매크로 또는 generate_data.py 로 갱신) -->
     <script src="data.js"></script>
-
-    <script>
-      // 실제 기기 화면 높이를 CSS 변수로 주입 (iframe 내부 vh 오동작 방지)
-      document.documentElement.style.setProperty('--screen-h', window.screen.height + 'px');
-    </script>
 
     <script>
       // ── 갤러리 빌더 ──────────────────────────────────────────

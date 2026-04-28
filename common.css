@@ -218,14 +218,26 @@ ul > li {
         background: rgba(0, 0, 0, 0.45);
     }
     #popup-modal {
-        width: calc(100vw - 16px) !important;   /* 100vw = iframe 뷰포트 폭 */
+        width: calc(100vw - 16px) !important;
         max-width: calc(100vw - 16px) !important;
-        /* vh는 iframe 전체 높이 기준이라 사용 불가 → JS로 실제 기기 높이 주입 */
         max-height: calc(var(--screen-h, 640px) * 0.85) !important;
+        overflow-x: hidden;                      /* 가로 overflow 차단 */
         overflow-y: auto;
         border-radius: 12px;
         box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
         margin: 0;
+    }
+    #popup-content {
+        overflow: hidden;
+        max-width: 100%;
+    }
+    /* 텍스트 줄 overflow 방지: &nbsp; 들여쓰기가 가로로 넘치는 문제 수정 */
+    .property-value .content-line {
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-wrap: anywhere;                 /* &nbsp; 포함 어디서든 줄바꿈 허용 */
+        max-width: 100%;
+        display: block;
     }
     .popup-header-bar   { height: 20px; }
     .cover-outer        { height: 160px; }

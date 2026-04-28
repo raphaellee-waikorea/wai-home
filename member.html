@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>주요 멤버 및 파트너사</title>
   <link href="common.css" rel="stylesheet"/>
+  <script>
+    // CSS 로드 전에 실제 기기 화면 높이를 변수로 주입
+    document.documentElement.style.setProperty('--screen-h', window.screen.height + 'px');
+  </script>
 </head>
 <body>
   <article class="page sans">
@@ -53,11 +57,6 @@
 
   <!-- data.js 로드 (ALL_DATA, COLOR_MAPS) -->
   <script src="data.js"></script>
-
-  <script>
-  // 실제 기기 화면 높이를 CSS 변수로 주입 (iframe 내부 vh 오동작 방지)
-  document.documentElement.style.setProperty('--screen-h', window.screen.height + 'px');
-  </script>
 
   <script>
   // ── 유틸 ─────────────────────────────────────────────────
