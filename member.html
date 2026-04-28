@@ -55,6 +55,11 @@
   <script src="data.js"></script>
 
   <script>
+  // 실제 기기 화면 높이를 CSS 변수로 주입 (iframe 내부 vh 오동작 방지)
+  document.documentElement.style.setProperty('--screen-h', window.screen.height + 'px');
+  </script>
+
+  <script>
   // ── 유틸 ─────────────────────────────────────────────────
   function esc(s) {
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');

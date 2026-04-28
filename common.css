@@ -218,9 +218,9 @@ ul > li {
         background: rgba(0, 0, 0, 0.45);
     }
     #popup-modal {
-        width: 100%;                     /* 오버레이 전체 폭 */
-        max-width: 100vw;                /* 화면 폭 초과 방지 */
-        max-height: 90vh;
+        width: 100%;
+        max-width: 100vw;
+        max-height: calc(var(--screen-h, 640px) * 0.88); /* JS가 실제 기기 높이 주입 */
         overflow-y: auto;
         border-radius: 16px 16px 0 0;
         box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.2);
