@@ -210,23 +210,36 @@ ul > li {
 
     .page-title         { font-size: 1.75rem; }
 
-    /* ── 팝업 모바일 ── */
-    #popup-overlay      { padding-top: 12px; align-items: flex-start; }
-    #popup-modal        { width: calc(100vw - 16px); border-radius: 8px; }
-    .popup-header-bar   { height: 28px; }
+    /* ── 팝업 모바일: 하단 시트 스타일 ── */
+    #popup-overlay {
+        padding-top: 0;
+        align-items: flex-end;
+        justify-content: flex-start;     /* 가로 중앙 정렬 해제 → 폭 100% 보장 */
+        background: rgba(0, 0, 0, 0.45);
+    }
+    #popup-modal {
+        width: 100%;                     /* 오버레이 전체 폭 */
+        max-width: 100vw;                /* 화면 폭 초과 방지 */
+        max-height: 90vh;
+        overflow-y: auto;
+        border-radius: 16px 16px 0 0;
+        box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.2);
+        margin: 0;
+    }
+    .popup-header-bar   { height: 20px; }
     .cover-outer        { height: 160px; }
-    .page-content       { padding: 0 14px 16px; }
-    .page-title-popup   { font-size: 1.4rem; margin: 8px 0 6px; padding: 0; }
+    .page-content       { padding: 0 14px 20px; }
+    .page-title-popup   { font-size: 1.5rem; margin: 8px 0 6px; padding: 0; }
 
     /* property-row: 라벨과 값을 세로로 쌓기 */
-    .property-row       {
+    .property-row {
         flex-direction: column;
         min-height: unset;
         padding: 6px 0;
         border-bottom: 1px solid rgba(55, 53, 47, 0.06);
         gap: 3px;
     }
-    .property-label     {
+    .property-label {
         width: 100%;
         min-width: unset;
         height: auto;
@@ -235,16 +248,16 @@ ul > li {
         color: rgba(55, 53, 47, 0.5);
         padding: 0 2px;
     }
-    .property-value     {
+    .property-value {
         padding: 0 2px;
         font-size: 13px;
         min-height: unset;
     }
-    .properties         { border-top: none; border-bottom: none; margin: 0; }
+    .properties { border-top: none; border-bottom: none; margin: 0; }
 
     /* 닫기 버튼 */
-    #popup-close        { top: 4px; right: 10px; width: 28px; height: 28px;
-                          font-size: 15px; line-height: 28px; }
+    #popup-close { top: 6px; right: 12px; width: 28px; height: 28px;
+                   font-size: 15px; line-height: 28px; }
 }
 
 @media (min-width: 641px) and (max-width: 900px) {
