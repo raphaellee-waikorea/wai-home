@@ -198,6 +198,7 @@ ul > li {
 @media (max-width: 640px) {
     body { margin: 1em auto; }
 
+    /* 갤러리: 1열 */
     .gallery-bod,
     .gallery-completed,
     .gallery-partner,
@@ -208,25 +209,57 @@ ul > li {
     .gallery-completed .card-image { height: 160px; }
 
     .page-title         { font-size: 1.75rem; }
-    .page-title-popup   { font-size: 1.6rem; }
 
-    .page-content       { padding: 0 16px 10px; }
+    /* ── 팝업 모바일 ── */
+    #popup-overlay      { padding-top: 12px; align-items: flex-start; }
+    #popup-modal        { width: calc(100vw - 16px); border-radius: 8px; }
+    .popup-header-bar   { height: 28px; }
+    .cover-outer        { height: 160px; }
+    .page-content       { padding: 0 14px 16px; }
+    .page-title-popup   { font-size: 1.4rem; margin: 8px 0 6px; padding: 0; }
 
-    .property-label     { width: 100px; min-width: 100px; font-size: 12px; }
-    .property-value     { font-size: 13px; }
+    /* property-row: 라벨과 값을 세로로 쌓기 */
+    .property-row       {
+        flex-direction: column;
+        min-height: unset;
+        padding: 6px 0;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.06);
+        gap: 3px;
+    }
+    .property-label     {
+        width: 100%;
+        min-width: unset;
+        height: auto;
+        font-size: 11px;
+        font-weight: 600;
+        color: rgba(55, 53, 47, 0.5);
+        padding: 0 2px;
+    }
+    .property-value     {
+        padding: 0 2px;
+        font-size: 13px;
+        min-height: unset;
+    }
+    .properties         { border-top: none; border-bottom: none; margin: 0; }
 
-    #popup-modal        { width: calc(100vw - 24px); }
-    .cover-outer        { height: 180px; }
+    /* 닫기 버튼 */
+    #popup-close        { top: 4px; right: 10px; width: 28px; height: 28px;
+                          font-size: 15px; line-height: 28px; }
 }
 
 @media (min-width: 641px) and (max-width: 900px) {
+    /* 갤러리: 2열 / 1열 */
     .gallery-bod,
     .gallery-completed  { grid-template-columns: repeat(2, 1fr); }
     .gallery-partner,
     .gallery-current    { grid-template-columns: 1fr; }
 
-    .page-content       { padding: 0 48px 10px; }
+    /* ── 팝업 태블릿 ── */
+    #popup-overlay      { padding-top: 24px; }
     #popup-modal        { width: calc(100vw - 80px); }
+    .page-content       { padding: 0 48px 10px; }
+    .page-title-popup   { font-size: 2rem; }
+    .cover-outer        { height: 220px; }
 }
 
 /* ── 공통 카드 기본 ─────────────────────────────────────────── */
