@@ -111,11 +111,8 @@
       }
 
       function openPopup(task) {
-        // 데스크탑: Wix 페이지를 iframe 상단으로 스크롤 (팝업이 항상 보이도록)
-        // 모바일: 하단 시트로 뜨므로 스크롤 불필요
-        if (window.innerWidth > 640) {
-          window.parent.postMessage({ action: 'popupOpening' }, '*');
-        }
+        // Wix 페이지를 iframe 상단으로 스크롤 (팝업이 iframe 상단에 fixed되므로 필수)
+        window.parent.postMessage({ action: 'popupOpening' }, '*');
 
 
         var props = "";
