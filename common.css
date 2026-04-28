@@ -218,23 +218,27 @@ ul > li {
         background: rgba(0, 0, 0, 0.45);
     }
     #popup-modal {
+        position: relative !important;
         width: calc(100vw - 16px) !important;
         max-width: calc(100vw - 16px) !important;
-        /* max-height를 모달에 걸고 overflow: hidden으로 자름 */
+        /* height를 명시해야 popup-content가 absolute로 꽉 채울 수 있음 */
+        height: calc(var(--screen-h, 640px) * 0.85) !important;
         max-height: calc(var(--screen-h, 640px) * 0.85) !important;
-        overflow: hidden !important;             /* 모달 자체는 숨김 처리 */
+        overflow: hidden !important;
         border-radius: 12px;
         box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
         margin: 0;
     }
     #popup-content {
-        flex: 1;
-        min-height: 0;                            /* flex 아이템이 max-height 무시하는 문제 수정 */
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
         overflow-x: hidden;
-        overflow-y: scroll;                       /* auto → scroll: 항상 스크롤 활성화 */
-        -webkit-overflow-scrolling: touch;        /* iOS 터치 스크롤 */
-        touch-action: pan-y;                      /* 수직 터치 스크롤 허용 */
-        max-width: 100%;
+        overflow-y: scroll !important;
+        -webkit-overflow-scrolling: touch;        /* iOS 모멘텀 스크롤 */
+        overscroll-behavior: contain;             /* 스크롤 끝에서 부모로 전파 차단 */
     }
     /* 텍스트 줄 overflow 방지: &nbsp; 들여쓰기가 가로로 넘치는 문제 수정 */
     .property-value .content-line {
