@@ -104,32 +104,7 @@
           .replace(/"/g, "&quot;");
       }
 
-      var _pendingTask = null;
-      // 부모(Wix)로부터 뷰포트 위치 수신
-      window.addEventListener('message', function(e) {
-        if (e.data && e.data.type === 'viewportInfo' && _pendingTask) {
-          var task         = _pendingTask;
-          _pendingTask     = null;
-          var visibleStart = e.data.visibleStart || 0;
-          var viewH        = e.data.viewH || window.innerHeight;
-
-          var overlay = document.getElementById("popup-overlay");
-          overlay.style.top    = visibleStart + "px";
-          overlay.style.height = viewH + "px";
-
-          // 기존 팝업 내용 생성 코드 그대로 ...
-          var props = "";
-          // (기존 props 빌드 코드 유지)
-
-          document.getElementById("popup-overlay").classList.add("active");
-          document.body.style.overflow = "hidden";
-        }
-      });
       function openPopup(task) {
-        _pendingTask = task;
-        // Wix 부모에게 현재 뷰포트 위치 요청
-        window.parent.postMessage({ action: 'requestViewport' }, '*');
-
         var props = "";
 
         // 키워드
