@@ -105,6 +105,10 @@
       }
 
       function openPopup(task) {
+        // Wix 페이지를 iframe 상단으로 스크롤 요청 (팝업이 항상 보이도록)
+        window.parent.postMessage({ action: 'popupOpening' }, '*');
+
+
         var props = "";
 
         // 키워드
