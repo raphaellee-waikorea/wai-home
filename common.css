@@ -361,7 +361,7 @@ ul > li {
     font-size: 40px;
     font-weight: 700;
     line-height: 1.2;
-    margin: 20px 0 8px;
+    margin: 10px 0 8px;
     padding: 4px 8px;
     word-break: break-word;
 }
@@ -375,7 +375,6 @@ ul > li {
     display: flex;
     align-items: flex-start;
     min-height: 34px;
-    margin-bottom: 2px;
     font-size: 14px;
 }
 .property-label {
@@ -400,7 +399,6 @@ ul > li {
 .property-value .content-line {
     display: block;
     width: 100%;
-    margin-bottom: 2px;
     font-size: 14px;
     line-height: 1.8;
     white-space: pre-wrap;
