@@ -220,15 +220,19 @@ ul > li {
     #popup-modal {
         width: calc(100vw - 16px) !important;
         max-width: calc(100vw - 16px) !important;
+        /* max-height를 모달에 걸고 overflow: hidden으로 자름 */
         max-height: calc(var(--screen-h, 640px) * 0.85) !important;
-        overflow-x: hidden;                      /* 가로 overflow 차단 */
-        overflow-y: auto;
+        overflow: hidden !important;             /* 모달 자체는 숨김 처리 */
         border-radius: 12px;
         box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
         margin: 0;
     }
     #popup-content {
-        overflow: hidden;
+        /* 스크롤은 여기서 처리 */
+        flex: 1;
+        min-height: 0;                           /* flex 아이템이 max-height 무시하는 문제 수정 */
+        overflow-x: hidden;
+        overflow-y: auto;
         max-width: 100%;
     }
     /* 텍스트 줄 overflow 방지: &nbsp; 들여쓰기가 가로로 넘치는 문제 수정 */
