@@ -170,6 +170,7 @@
           "</div>";
 
         document.getElementById("popup-overlay").classList.add("active");
+        document.getElementById("popup-content").scrollTop = 0;  // 스크롤 위치 초기화
         document.body.style.overflow = "hidden";
       }
       function closePopup() {
