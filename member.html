@@ -135,6 +135,10 @@
       '</div>';
     document.getElementById('popup-overlay').classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    // 팝업 내부 터치 스크롤이 Wix 부모로 전파되지 않도록 차단
+    var content = document.getElementById('popup-content');
+    content.ontouchstart = function(e) { e.stopPropagation(); };
   }
 
   function closePopup() {

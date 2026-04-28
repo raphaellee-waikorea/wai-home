@@ -228,11 +228,12 @@ ul > li {
         margin: 0;
     }
     #popup-content {
-        /* 스크롤은 여기서 처리 */
         flex: 1;
-        min-height: 0;                           /* flex 아이템이 max-height 무시하는 문제 수정 */
+        min-height: 0;                            /* flex 아이템이 max-height 무시하는 문제 수정 */
         overflow-x: hidden;
-        overflow-y: auto;
+        overflow-y: scroll;                       /* auto → scroll: 항상 스크롤 활성화 */
+        -webkit-overflow-scrolling: touch;        /* iOS 터치 스크롤 */
+        touch-action: pan-y;                      /* 수직 터치 스크롤 허용 */
         max-width: 100%;
     }
     /* 텍스트 줄 overflow 방지: &nbsp; 들여쓰기가 가로로 넘치는 문제 수정 */
