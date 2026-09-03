@@ -22,6 +22,17 @@ const ALL_DATA   = {
       "end_month": "2026-06",
       "comp_mngt": "앰버로드",
       "kewards": "제조, 공정데이터, 최적화, 시뮬레이션"
+    },
+    {
+      "id": 4,
+      "title": "AI 기반 책무 시스템 고도화",
+      "contents": "• 책무 업무 프로세스 중 5개 모듈에 대해 AI 기술 적용\n  • Vector, Graph DB 구축 및 프롬프트 설계, 구현\n  • AI Agent 프로세스 설계 및 구현",
+      "image": "task/logo_shinhangroup.png",
+      "comp_exec": "",
+      "start_month": "2026-01",
+      "end_month": "2026-07",
+      "comp_mngt": "신한DS",
+      "kewards": "AI Agent, GraphDB, Prompt Engineering, RAG, VectorDB, 금융, 비즈니스Rule"
     }
   ],
   "cmpt_task": [
@@ -321,17 +332,6 @@ const ALL_DATA   = {
       "end_month": "2020-02",
       "comp_mngt": "코오롱베니트",
       "kewards": "금융, 모델실행속도개선, 분류모델, 시계열모델, 파이프라인정비"
-    },
-    {
-      "id": 28,
-      "title": "AI 기반 책무 시스템 고도화",
-      "contents": "• 책무 업무 프로세스 중 5개 모듈에 대해 AI 기술 적용\n  • Vector, Graph DB 구축 및 프롬프트 설계, 구현\n  • AI Agent 프로세스 설계 및 구현",
-      "image": "task/logo_shinhangroup.png",
-      "comp_exec": "",
-      "start_month": "2026-01",
-      "end_month": "2026-07",
-      "comp_mngt": "신한DS",
-      "kewards": "AI Agent, GraphDB, Prompt Engineering, RAG, VectorDB, 금융, 비즈니스Rule"
     }
   ],
   "bod": [
