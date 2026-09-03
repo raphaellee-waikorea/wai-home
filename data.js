@@ -22,9 +22,11 @@ const ALL_DATA   = {
       "end_month": "2026-06",
       "comp_mngt": "앰버로드",
       "kewards": "제조, 공정데이터, 최적화, 시뮬레이션"
-    },
+    }
+  ],
+  "cmpt_task": [
     {
-      "id": 4,
+      "id": 28,
       "title": "AI 기반 책무 시스템 고도화",
       "contents": "• 책무 업무 프로세스 중 5개 모듈에 대해 AI 기술 적용\n  • Vector, Graph DB 구축 및 프롬프트 설계, 구현\n  • AI Agent 프로세스 설계 및 구현",
       "image": "task/logo_shinhangroup.png",
@@ -33,9 +35,7 @@ const ALL_DATA   = {
       "end_month": "2026-07",
       "comp_mngt": "신한DS",
       "kewards": "AI Agent, GraphDB, Prompt Engineering, RAG, VectorDB, 금융, 비즈니스Rule"
-    }
-  ],
-  "cmpt_task": [
+    },
     {
       "id": 1,
       "title": "딥러닝 기반 인입콜 예측 알고리즘 개발",
@@ -103,6 +103,17 @@ const ALL_DATA   = {
       "kewards": "시계열모델, 이미지, 제조, 태양광"
     },
     {
+      "id": 13,
+      "title": "데이터 분석 매니지먼트 서비스",
+      "contents": "• DMP(Data Management Platform) 기반 데이터 분석\n  • 가명 고객 세분화 및 특성 분석\n  • 지표 및 마케팅 가능 대상자 발굴, 실행, 성과 분석",
+      "image": "task/logo_nh.png",
+      "comp_exec": "",
+      "start_month": "2023-01",
+      "end_month": "2024-12",
+      "comp_mngt": "",
+      "kewards": "고객세분화, 과제발굴, 금융, 분류모델, 비식별데이터"
+    },
+    {
       "id": 7,
       "title": "내부 상시감시 시스템 컨설팅",
       "contents": "• 내부 상시감시 Rule 검증 및 예측 모델 생성 방안 제시\n  • 수신/여신/외환/공통 거래 기반 기존 Rule 적정성 검증\n  • 수치기반 모델링 방안 제시",
@@ -110,6 +121,17 @@ const ALL_DATA   = {
       "comp_exec": "",
       "start_month": "2024-08",
       "end_month": "2024-10",
+      "comp_mngt": "삼정KPMG",
+      "kewards": "금융, 비즈니스Rule, 컨설팅"
+    },
+    {
+      "id": 9,
+      "title": "내부 상시감시 시스템 컨설팅",
+      "contents": "• 내부 상시감시 Rule 검증 및 예측 모델 생성 방안 제시\n  • 수신/여신/외환/공통 거래 기반 기존 Rule 적정성 검증\n  • 수치기반 모델링 방안 제시",
+      "image": "task/logo_kjbank.png",
+      "comp_exec": "",
+      "start_month": "2024-03",
+      "end_month": "2024-07",
       "comp_mngt": "삼정KPMG",
       "kewards": "금융, 비즈니스Rule, 컨설팅"
     },
@@ -122,17 +144,6 @@ const ALL_DATA   = {
       "start_month": "2024-04",
       "end_month": "2024-05",
       "comp_mngt": "안진Deloitte",
-      "kewards": "금융, 비즈니스Rule, 컨설팅"
-    },
-    {
-      "id": 9,
-      "title": "내부 상시감시 시스템 컨설팅",
-      "contents": "• 내부 상시감시 Rule 검증 및 예측 모델 생성 방안 제시\n  • 수신/여신/외환/공통 거래 기반 기존 Rule 적정성 검증\n  • 수치기반 모델링 방안 제시",
-      "image": "task/logo_kjbank.png",
-      "comp_exec": "",
-      "start_month": "2024-03",
-      "end_month": "2024-07",
-      "comp_mngt": "삼정KPMG",
       "kewards": "금융, 비즈니스Rule, 컨설팅"
     },
     {
@@ -169,17 +180,6 @@ const ALL_DATA   = {
       "kewards": "공공, 분류모델, 이미지분류, 크롤링, 텍스트분석"
     },
     {
-      "id": 13,
-      "title": "데이터 분석 매니지먼트 서비스",
-      "contents": "• DMP(Data Management Platform) 기반 데이터 분석\n  • 가명 고객 세분화 및 특성 분석\n  • 지표 및 마케팅 가능 대상자 발굴, 실행, 성과 분석",
-      "image": "task/logo_nh.png",
-      "comp_exec": "",
-      "start_month": "2023-01",
-      "end_month": "2024-12",
-      "comp_mngt": "",
-      "kewards": "고객세분화, 과제발굴, 금융, 분류모델, 비식별데이터"
-    },
-    {
       "id": 14,
       "title": "방송 트렌드 및 텍스트 분석",
       "contents": "• 드라마 긍/부정 시청자 반응 분석\n  • 드라마 댓글 수집 및 언어 모델을 활용한 문장 정비, 단어 형태 소 분석 및 비정형 변수 생성\n  • 대시보드 표현을 위한 드라마 반응 분석 결과 도출 및 주요 키워드 도출",
@@ -189,28 +189,6 @@ const ALL_DATA   = {
       "end_month": "2023-03",
       "comp_mngt": "대건정보",
       "kewards": "크롤링, 텍스트분석"
-    },
-    {
-      "id": 15,
-      "title": "기구 신뢰성 검증 플랫폼 개발",
-      "contents": "• 제품 개발 단계에 따른 기구 성능 예측 및 최종 시험 통과 확률 예측 플랫폼 개발\n  • 시험 결과 기반 통과 평가 시스템 자동화 및 통과 확률 모델 구현\n  • 알테어 제품을 이용한 데이터 처리 자동화 및 시각화 구현",
-      "image": "task/logo_lge.png",
-      "comp_exec": "",
-      "start_month": "2022-05",
-      "end_month": "2022-07",
-      "comp_mngt": "한국알테어",
-      "kewards": "분류모델, 시각화, 제조"
-    },
-    {
-      "id": 16,
-      "title": "이상 금융거래 탐지 시스템 구축",
-      "contents": "• 이상거래탐지(FDS) 유형 분석 및 모델 개발\n  • 대포 통장 개설 등 이상 거래 Rule 검증 및 판단 모델 개발\n  • 희박한 예측 건에 대해 A.I 모델링 및 구축 지원",
-      "image": "task/logo_miraeAssetSC.png",
-      "comp_exec": "",
-      "start_month": "2020-11",
-      "end_month": "2021-04",
-      "comp_mngt": "KCB",
-      "kewards": "FDS, 금융, 분류모델"
     },
     {
       "id": 17,
@@ -235,6 +213,17 @@ const ALL_DATA   = {
       "kewards": "선물지수, 시계열모델, 원자재"
     },
     {
+      "id": 15,
+      "title": "기구 신뢰성 검증 플랫폼 개발",
+      "contents": "• 제품 개발 단계에 따른 기구 성능 예측 및 최종 시험 통과 확률 예측 플랫폼 개발\n  • 시험 결과 기반 통과 평가 시스템 자동화 및 통과 확률 모델 구현\n  • 알테어 제품을 이용한 데이터 처리 자동화 및 시각화 구현",
+      "image": "task/logo_lge.png",
+      "comp_exec": "",
+      "start_month": "2022-05",
+      "end_month": "2022-07",
+      "comp_mngt": "한국알테어",
+      "kewards": "분류모델, 시각화, 제조"
+    },
+    {
       "id": 19,
       "title": "드라마 제작 의사결정 시스템 구축",
       "contents": "• 드라마 제작 평가를 위한 텍스트 감성 분석 및 지수화 (텍스트 분류)\n  • 드라마 반응 댓글 수집 및 문장 단위의 문맥 이해 모델 개발, 단어 대분류 체계 수립\n  • 단어 사전 생성 및 감성지수 생성 모델 구축",
@@ -257,6 +246,17 @@ const ALL_DATA   = {
       "kewards": "금융, 분류모델, 비즈니스Rule, 지수개발"
     },
     {
+      "id": 22,
+      "title": "분석 컨설팅",
+      "contents": "• 롯데 6개 계열사 분석 과제 수행 (불균형 분류 예측, 시계열 예측, 페르소나 발굴)\n  • 대상 계열사: 마트,슈퍼,하이마트,K7,백화점,캐피탈\n  • 가격 탄력도 분석\n  • 우량 고객(페르소나) 발굴\n  • 빅가전 구매 가능 고객 예측\n  • 점포 세분화\n  • 신규 고객 발굴",
+      "image": "task/logo_lotteMembers.png",
+      "comp_exec": "",
+      "start_month": "2021-08",
+      "end_month": "2022-01",
+      "comp_mngt": "단독수주",
+      "kewards": "분류모델, 비지도학습, 시계열모델, 유통"
+    },
+    {
       "id": 21,
       "title": "이미지 검색 시스템 PoC",
       "contents": "• 이미지 검색을 위한 사전 분류 체계 수립 및 유사 이미지 추천 모델링 (유사 이미지 탐색)\n  • 이미지 카테고리 정의\n  • 이미지 분류 모델링 및 주요 피처 추출 자동화",
@@ -268,15 +268,15 @@ const ALL_DATA   = {
       "kewards": "분류모델, 이미지"
     },
     {
-      "id": 22,
-      "title": "분석 컨설팅",
-      "contents": "• 롯데 6개 계열사 분석 과제 수행 (불균형 분류 예측, 시계열 예측, 페르소나 발굴)\n  • 대상 계열사: 마트,슈퍼,하이마트,K7,백화점,캐피탈\n  • 가격 탄력도 분석\n  • 우량 고객(페르소나) 발굴\n  • 빅가전 구매 가능 고객 예측\n  • 점포 세분화\n  • 신규 고객 발굴",
-      "image": "task/logo_lotteMembers.png",
+      "id": 16,
+      "title": "이상 금융거래 탐지 시스템 구축",
+      "contents": "• 이상거래탐지(FDS) 유형 분석 및 모델 개발\n  • 대포 통장 개설 등 이상 거래 Rule 검증 및 판단 모델 개발\n  • 희박한 예측 건에 대해 A.I 모델링 및 구축 지원",
+      "image": "task/logo_miraeAssetSC.png",
       "comp_exec": "",
-      "start_month": "2021-08",
-      "end_month": "2022-01",
-      "comp_mngt": "단독수주",
-      "kewards": "분류모델, 비지도학습, 시계열모델, 유통"
+      "start_month": "2020-11",
+      "end_month": "2021-04",
+      "comp_mngt": "KCB",
+      "kewards": "FDS, 금융, 분류모델"
     },
     {
       "id": 23,
@@ -290,17 +290,6 @@ const ALL_DATA   = {
       "kewards": "FDS, 금융, 분류모델"
     },
     {
-      "id": 24,
-      "title": "상품 추천 및 Peer Group 분석",
-      "contents": "• 자동화 기계학습 솔루션 기반 상품 추천 모델 개발 및 서베이 기반 Peer Group 분석\n  • 12개 상품군 대상 고객 가입 예측 모델 개발\n  • 서베이 자료 기반 Peer Group 분류를 위한 Factor 산출",
-      "image": "task/logo_shinhanbank.png",
-      "comp_exec": "",
-      "start_month": "2020-08",
-      "end_month": "2020-09",
-      "comp_mngt": "단독수주",
-      "kewards": "AutoML, 금융, 분류모델"
-    },
-    {
       "id": 25,
       "title": "중학교 배정 최적화 컨설팅",
       "contents": "• 중학교 근거리 배정 모델링 및 최적화 (최적화)\n  • 자택 주소 및 인근 중학교 위치 기반 거리 데이터 수집\n  • 거리 기반 최적화 모델링 및 조정 방안 수립, 자동화 구현",
@@ -310,6 +299,17 @@ const ALL_DATA   = {
       "end_month": "2020-11",
       "comp_mngt": "단독수주",
       "kewards": "공공, 선형계획법, 최적화"
+    },
+    {
+      "id": 24,
+      "title": "상품 추천 및 Peer Group 분석",
+      "contents": "• 자동화 기계학습 솔루션 기반 상품 추천 모델 개발 및 서베이 기반 Peer Group 분석\n  • 12개 상품군 대상 고객 가입 예측 모델 개발\n  • 서베이 자료 기반 Peer Group 분류를 위한 Factor 산출",
+      "image": "task/logo_shinhanbank.png",
+      "comp_exec": "",
+      "start_month": "2020-08",
+      "end_month": "2020-09",
+      "comp_mngt": "단독수주",
+      "kewards": "AutoML, 금융, 분류모델"
     },
     {
       "id": 26,
