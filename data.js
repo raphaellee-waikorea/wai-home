@@ -9,7 +9,7 @@ const ALL_DATA   = {
       "comp_exec": "퀀텀AI",
       "start_month": "2026-04",
       "end_month": "2026-11",
-      "comp_mngt": "안진Deloitte",
+      "comp_mngt": "안진Deloitte1",
       "kewards": "제조, 모델선택, 시계열모델, 강화학습, 시각화"
     },
     {
