@@ -26,7 +26,7 @@ const ALL_DATA   = {
     {
       "title": "자금세탁방지 시스템 고도화",
       "contents": "• 의심거래보고 STR 대상 감지 모델링\n  • 고객 거래내역 분석 및 의심거래 탐지 모델 개발\n  • 재학습 포함 자동화 구현",
-      "image": "task/img_1788714724831.jpg",
+      "image": "task/img_1788714856966.jpg",
       "comp_exec": "지티원",
       "start_month": "2026-09",
       "end_month": "2027-03",
