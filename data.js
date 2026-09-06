@@ -9,7 +9,7 @@ const ALL_DATA   = {
       "comp_exec": "퀀텀AI",
       "start_month": "2026-04",
       "end_month": "2026-11",
-      "comp_mngt": "안진Deloitte1",
+      "comp_mngt": "안진Deloitte",
       "kewards": "제조, 모델선택, 시계열모델, 강화학습, 시각화"
     },
     {
@@ -22,6 +22,17 @@ const ALL_DATA   = {
       "end_month": "2026-06",
       "comp_mngt": "앰버로드",
       "kewards": "제조, 공정데이터, 최적화, 시뮬레이션"
+    },
+    {
+      "title": "자금세탁방지 시스템 고도화",
+      "contents": "• 의심거래보고 STR 대상 감지 모델링\n  • 고객 거래내역 분석 및 의심거래 탐지 모델 개발\n  • 재학습 포함 자동화 구현",
+      "image": "",
+      "comp_exec": "지티원",
+      "start_month": "2026-09",
+      "end_month": "2027-03",
+      "comp_mngt": "안진Deloitte",
+      "kewards": "금융, 분류모델, 자금세탁방지(AML)",
+      "id": 4
     }
   ],
   "cmpt_task": [
