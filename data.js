@@ -22,6 +22,17 @@ const ALL_DATA   = {
       "end_month": "2026-06",
       "comp_mngt": "앰버로드",
       "kewards": "제조, 공정데이터, 최적화, 시뮬레이션"
+    },
+    {
+      "title": "자금세탁방지 시스템 고도화",
+      "contents": "•의심거래보고 STR 대상 분류 모델링\n  •고/중/저 위험 예측 모델 구현\n•고객 위험 평가 모델 개발\n•재학습 포함 자동화",
+      "image": "",
+      "comp_exec": "",
+      "start_month": "2026-09",
+      "end_month": "2027-03",
+      "comp_mngt": "지티원",
+      "kewards": "금융, 분류모델, 자금세탁방지(AML)",
+      "id": 4
     }
   ],
   "cmpt_task": [
