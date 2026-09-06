@@ -5,7 +5,7 @@ const ALL_DATA   = {
       "id": 1,
       "title": "통합 모델링 고도화",
       "contents": "• 수요예측 모델 정비 및 예측 모델 선택 알고리즘 개발\n  • 제품별, 국가별 수요예측 모델 현황 파악 및 결과 선택 알고리즘 개발\n  • 단계별 validation 지점 도출 및 모니터링 시스템 개발",
-      "image": "https://raphaellee-waikorea.github.io/wai-home/img/task/img_1788714111111.png",
+      "image": "task/img_1788714111111.png",
       "comp_exec": "퀀텀AI",
       "start_month": "2026-04",
       "end_month": "2026-11",
@@ -26,7 +26,7 @@ const ALL_DATA   = {
     {
       "title": "자금세탁방지 시스템 고도화",
       "contents": "• 의심거래보고 STR 대상 감지 모델링\n  • 고객 거래내역 분석 및 의심거래 탐지 모델 개발\n  • 재학습 포함 자동화 구현",
-      "image": "https://raphaellee-waikorea.github.io/wai-home/img/task/img_1788714119351.jpg",
+      "image": "task/img_1788714119351.jpg",
       "comp_exec": "지티원",
       "start_month": "2026-09",
       "end_month": "2027-03",
