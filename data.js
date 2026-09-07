@@ -326,7 +326,7 @@ const ALL_DATA   = {
       "id": 24,
       "title": "상품 추천 및 Peer Group 분석",
       "contents": "• 자동화 기계학습 솔루션 기반 상품 추천 모델 개발 및 서베이 기반 Peer Group 분석\n  • 12개 상품군 대상 고객 가입 예측 모델 개발\n  • 서베이 자료 기반 Peer Group 분류를 위한 Factor 산출",
-      "image": "task/logo_shinhanbank.png",
+      "image": "task/img_1788795501840.png",
       "comp_exec": "",
       "start_month": "2020-08",
       "end_month": "2020-09",
