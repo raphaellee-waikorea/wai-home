@@ -37,7 +37,7 @@ const ALL_DATA   = {
     {
       "title": "AI 기반 책무 시스템 고도화",
       "contents": "• 책무 업무 프로세스 중 3개 모듈에 대해 AI 기술 적용\n  • 실시간/배치 SW 인프라 설계\n  • Vector DB 구축 및 프롬프트 설계, 구현\n  • AI Agent 프로세스 설계 및 구현",
-      "image": "task/img_1788795384832.png",
+      "image": "task/img_1788795598484.png",
       "comp_exec": "딜로이트",
       "start_month": "2026-05",
       "end_month": "2026-11",
@@ -326,7 +326,7 @@ const ALL_DATA   = {
       "id": 24,
       "title": "상품 추천 및 Peer Group 분석",
       "contents": "• 자동화 기계학습 솔루션 기반 상품 추천 모델 개발 및 서베이 기반 Peer Group 분석\n  • 12개 상품군 대상 고객 가입 예측 모델 개발\n  • 서베이 자료 기반 Peer Group 분류를 위한 Factor 산출",
-      "image": "task/img_1788795501840.png",
+      "image": "task/img_1788795611044.png",
       "comp_exec": "",
       "start_month": "2020-08",
       "end_month": "2020-09",
