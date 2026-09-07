@@ -33,6 +33,17 @@ const ALL_DATA   = {
       "comp_mngt": "안진Deloitte",
       "kewards": "금융, 분류모델, 자금세탁방지(AML)",
       "id": 4
+    },
+    {
+      "title": "AI 기반 책무 시스템 고도화",
+      "contents": "• 책무 업무 프로세스 중 3개 모듈에 대해 AI 기술 적용\n  • 실시간/배치 SW 인프라 설계\n  • Vector DB 구축 및 프롬프트 설계, 구현\n  • AI Agent 프로세스 설계 및 구현",
+      "image": "task/logo_shinhanbank.png",
+      "comp_exec": "딜로이트",
+      "start_month": "2026-05",
+      "end_month": "2026-11",
+      "comp_mngt": "에스랩",
+      "kewards": "AI Agent, VectorDB, RAG, 금융, AI Infra",
+      "id": 5
     }
   ],
   "cmpt_task": [
