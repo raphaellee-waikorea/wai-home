@@ -37,7 +37,7 @@ const ALL_DATA   = {
     {
       "title": "AI 기반 책무 시스템 고도화",
       "contents": "• 책무 업무 프로세스 중 3개 모듈에 대해 AI 기술 적용\n  • 실시간/배치 SW 인프라 설계\n  • Vector DB 구축 및 프롬프트 설계, 구현\n  • AI Agent 프로세스 설계 및 구현",
-      "image": "task/img_1788794684143.png",
+      "image": "task/img_1788795384832.png",
       "comp_exec": "딜로이트",
       "start_month": "2026-05",
       "end_month": "2026-11",
