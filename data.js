@@ -24,17 +24,6 @@ const ALL_DATA   = {
       "kewards": "제조, 공정데이터, 최적화, 시뮬레이션"
     },
     {
-      "title": "자금세탁방지 시스템 고도화",
-      "contents": "• 의심거래보고 STR 대상 감지 모델링\n  • 고객 거래내역 분석 및 의심거래 탐지 모델 개발\n  • 재학습 포함 자동화 구현",
-      "image": "task/img_1788796789746.jpg",
-      "comp_exec": "지티원",
-      "start_month": "2026-09",
-      "end_month": "2027-03",
-      "comp_mngt": "안진Deloitte",
-      "kewards": "금융, 분류모델, 자금세탁방지(AML)",
-      "id": 4
-    },
-    {
       "title": "AI 기반 책무 시스템 고도화",
       "contents": "• 책무 업무 프로세스 중 3개 모듈에 대해 AI 기술 적용\n  • 실시간/배치 SW 인프라 설계\n  • Vector DB 구축 및 프롬프트 설계, 구현\n  • AI Agent 프로세스 설계 및 구현",
       "image": "task/img_1788795598484.png",
