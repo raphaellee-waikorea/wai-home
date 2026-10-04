@@ -53,7 +53,7 @@ const ALL_DATA   = {
       "start_month": "2026-09",
       "end_month": "2027-03",
       "comp_mngt": "지티원",
-      "kewards": "",
+      "kewards": "금융, 분류모델, 자금세탁방지(AML)",
       "id": 7
     }
   ],
